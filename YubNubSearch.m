@@ -42,18 +42,16 @@
 
 @implementation NSObject (YNS_Patch)
 - (NSURL *)YNS_URLWithSearchCriteria:(NSString *)text {
-	NSEvent *curEvt = [NSApp currentEvent];
-	if ([curEvt modifierFlags] & NSShiftKeyMask) {
-		// opt is down - go for google
-		// trim a leading "g " if it exists - don't need to google search for the g
-		if ([text length] > 2 && [[text substringToIndex:2] isEqualToString:@"g "]) {
-			text = [text substringFromIndex:2];
-		}
+	if ([text length] > 2 && [[text substringToIndex:2] isEqualToString:@"g "]) {
+		text = [text substringFromIndex:2];
 		return [self YNS_URLWithSearchCriteria:text];
 	} else {
 		NSMutableString *mText = [[text mutableCopy] autorelease];
 		[mText replaceOccurrencesOfString:@" " withString:@"+" options:NSLiteralSearch range:NSMakeRange(0, [mText length])];
-		text = [mText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+		text = (NSString *)CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)mText,
+																   NULL, (CFStringRef)@"&;", kCFStringEncodingUTF8);
+		[text autorelease];
+		//text = [mText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 		return [NSURL URLWithString:[@"http://yubnub.org/parser/parse?command=" stringByAppendingString:text]];
 	}
 }

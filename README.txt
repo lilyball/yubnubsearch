@@ -11,12 +11,13 @@ To use, install [SIMBL][] first if you don't already have it, then simply copy Y
 into `/Library/Application Support/SIMBL/Plugins/` and restart Safari.
 
 To use, type stuff into the search field. Everything will be sent to [YubNub][] instead of Google.
-If you want to use Google anyway (say, [YubNub][] is being really slow), just hold shift when you press
-return and it will fall back to the default search behavior. If the search string has a leading "g " it
-will be stripped (this way if you use [YubNub][]'s google search command and it's slow, you can use Google
-instead to search for the exact same string).
+If the string starts with "g " it will be sent to Google anyway, with the "g " stripped off.
 
 Version History:
+
+ * 1.1: Searches prefixed with "g " now default to Google without going through YubNub
+		Holding down Shift no longer defaults to Google (this was behaving inconsistently)
+		"&" and ";" are now escaped for YubNub
 
  * 1.0: Initial release
 
