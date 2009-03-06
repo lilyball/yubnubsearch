@@ -14,6 +14,7 @@
 				0A556A1B0F60AB3000DA3B3A /* CopyFiles */,
 				0A556A5A0F60ACAD00DA3B3A /* Copy README.html */,
 				0A556B480F60B77500DA3B3A /* Copy src */,
+				0A556BBC0F60BCF500DA3B3A /* Create Archive */,
 			);
 			dependencies = (
 				0A556A200F60AB3700DA3B3A /* PBXTargetDependency */,
@@ -274,6 +275,20 @@
 			shellScript = "rsync -av --delete --delete-excluded -C --exclude=.git/ --include='*.xcodeproj/project.pbxproj' --exclude='*.xcodeproj/*' \"$SCRIPT_INPUT_FILE_0\"/ \"$SCRIPT_OUTPUT_FILE_0\"/";
 			showEnvVarsInLog = 0;
 		};
+		0A556BBC0F60BCF500DA3B3A /* Create Archive */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Create Archive";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nexport GIT_DIR=\"$SRCROOT/.git\"\nexport GIT_WORK_TREE=\"$SRCROOT\"\n\n# calculate the proper archive suffix\nDESCRIBE=`git describe --match='v[0-9]*' --always`\nSUFFIX=\"${DESCRIBE#v}\"\n\nINPUT_FILE=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}\"\nOUTPUT_FILE=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}-${SUFFIX}.${WRAPPER_EXTENSION}\"\n\necho \"Creating archive $OUTPUT_FILE\"\ntar -C \"$(dirname \"$INPUT_FILE\")\" -czf \"$OUTPUT_FILE\" \"$(basename \"$INPUT_FILE\")\"\n\nrm -rf \"$INPUT_FILE\"";
+		};
 		0AB48A150C50CF1800154D1C /* Process README.markdown */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -332,6 +347,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				PRODUCT_NAME = YubNubSearch;
+				WRAPPER_EXTENSION = tgz;
 			};
 			name = Debug;
 		};
@@ -342,6 +358,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				PRODUCT_NAME = YubNubSearch;
+				WRAPPER_EXTENSION = tgz;
 				ZERO_LINK = NO;
 			};
 			name = Release;
