@@ -26,6 +26,7 @@
 
 @interface NSObject (YNS_Patch)
 - (NSURL *)YNS_URLWithSearchCriteria:(NSString *)text;
+- (NSString *)YNS_localSearchStringFromWebSearchString:(NSString *)searchString;
 - (void)YNS_layOutInputFields;
 @end
 
@@ -37,12 +38,15 @@
 	if (!b) {
 		NSLog(@"YubNubSearch: installation failed");
 	}
+	// ignore the result from the following swizzle, it doesn't particularly matter if it fails
+	MethodSwizzle(NSClassFromString(@"GoogleSearchChannel"), @selector(localSearchStringFromWebSearchString:),
+				  @selector(YNS_localSearchStringFromWebSearchString:));
 }
 @end
 
 @implementation NSObject (YNS_Patch)
 - (NSURL *)YNS_URLWithSearchCriteria:(NSString *)text {
-	if ([text length] > 2 && [[text substringToIndex:2] isEqualToString:@"g "]) {
+	if ([text hasPrefix:@"g "]) {
 		text = [text substringFromIndex:2];
 		return [self YNS_URLWithSearchCriteria:text];
 	} else {
@@ -51,9 +55,17 @@
 		text = (NSString *)CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)mText,
 																   NULL, (CFStringRef)@"&;", kCFStringEncodingUTF8);
 		[text autorelease];
-		//text = [mText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 		return [NSURL URLWithString:[@"http://yubnub.org/parser/parse?command=" stringByAppendingString:text]];
 	}
+}
+
+- (NSString *)YNS_localSearchStringFromWebSearchString:(NSString *)searchString {
+	// always assume the first word is a command
+	NSArray *components = [[searchString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] componentsSeparatedByString:@" "];
+	if ([components count] > 1) {
+		searchString = [[components subarrayWithRange:NSMakeRange(1, [components count]-1)] componentsJoinedByString:@" "];
+	}
+	return [self YNS_localSearchStringFromWebSearchString:searchString];
 }
 
 - (void)YNS_layOutInputFields {
