@@ -127,7 +127,7 @@
 				8D5B49AF048680CD000E48DA /* Resources */,
 				8D5B49B1048680CD000E48DA /* Sources */,
 				8D5B49B3048680CD000E48DA /* Frameworks */,
-				0AB48A150C50CF1800154D1C /* ShellScript */,
+				0AB48A150C50CF1800154D1C /* Process README.markdown */,
 			);
 			buildRules = (
 			);
@@ -168,20 +168,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0AB48A150C50CF1800154D1C /* ShellScript */ = {
+		0AB48A150C50CF1800154D1C /* Process README.markdown */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/README.txt",
+				"$(SRCROOT)/README.markdown",
 			);
+			name = "Process README.markdown";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Readme.txt",
+				"$(DERIVED_FILE_DIR)/README.html",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "OUTPUT=${DERIVED_FILE_DIR}/README.html\nif [[ $BUILD_STYLE = Release ]]; then\n\tcat <<EOF > $OUTPUT\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html>\n<head>\n<title>YubNubSearch</title>\n</head>\n<body>\nEOF\n\tperl ${SRCROOT}/Markdown.pl ${SRCROOT}/README.txt >> $OUTPUT\n\tcat <<EOF >> $OUTPUT\n</body>\n</html>\nEOF\nfi";
+			shellScript = "OUTPUT=${DERIVED_FILE_DIR}/README.html\nif [[ $BUILD_STYLE = Release ]]; then\n\tcat <<EOF > $OUTPUT\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html>\n<head>\n<title>YubNubSearch</title>\n</head>\n<body>\nEOF\n\tperl ${SRCROOT}/Markdown.pl ${SRCROOT}/README.markdown >> $OUTPUT\n\tcat <<EOF >> $OUTPUT\n</body>\n</html>\nEOF\nfi";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
