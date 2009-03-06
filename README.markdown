@@ -16,11 +16,11 @@ If the string starts with "g " it will be sent to Google anyway, with the "g " s
 Version History:
 
  * 1.2: Skip the YubNub command when putting the first word of the search string onto the
-		Find pasteboard.
+   Find pasteboard.
 
  * 1.1: Searches prefixed with "g " now default to Google without going through YubNub
-		Holding down Shift no longer defaults to Google (this was behaving inconsistently)
-		"&" and ";" are now escaped for YubNub
+   Holding down Shift no longer defaults to Google (this was behaving inconsistently)
+   "&" and ";" are now escaped for YubNub
 
  * 1.0: Initial release
 
