@@ -6,12 +6,55 @@
 	objectVersion = 42;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		0A556A1C0F60AB3000DA3B3A /* YubNubSearch Archive */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 0A556A2E0F60AB7300DA3B3A /* Build configuration list for PBXAggregateTarget "YubNubSearch Archive" */;
+			buildPhases = (
+				0A556A1B0F60AB3000DA3B3A /* CopyFiles */,
+				0A556A5A0F60ACAD00DA3B3A /* Copy README.html */,
+				0A556B480F60B77500DA3B3A /* Copy src */,
+			);
+			dependencies = (
+				0A556A200F60AB3700DA3B3A /* PBXTargetDependency */,
+			);
+			name = "YubNubSearch Archive";
+			productName = "YubNubSearch Archive";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		0A538FA90B3E844200642847 /* MethodSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A538F3F0B3E79E100642847 /* MethodSwizzle.m */; };
+		0A556A230F60AB5400DA3B3A /* YubNubSearch.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8D5B49B6048680CD000E48DA /* YubNubSearch.bundle */; };
+		0A556B440F60B76300DA3B3A /* SIMBL.webloc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0A556B430F60B76300DA3B3A /* SIMBL.webloc */; };
 		0ADCAF800B09227D0065AEEB /* YubNubSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADCAF7F0B09227D0065AEEB /* YubNubSearch.m */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0A556A1F0F60AB3700DA3B3A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D5B49AC048680CD000E48DA;
+			remoteInfo = YubNubSearch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0A556A1B0F60AB3000DA3B3A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				0A556A230F60AB5400DA3B3A /* YubNubSearch.bundle in CopyFiles */,
+				0A556B440F60B76300DA3B3A /* SIMBL.webloc in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -19,6 +62,7 @@
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		0A538F3F0B3E79E100642847 /* MethodSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MethodSwizzle.m; sourceTree = "<group>"; };
 		0A538F420B3E79ED00642847 /* MethodSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MethodSwizzle.h; sourceTree = "<group>"; };
+		0A556B430F60B76300DA3B3A /* SIMBL.webloc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SIMBL.webloc; sourceTree = "<group>"; };
 		0AB48A020C50CD5E00154D1C /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
 		0ADCAF7E0B09227D0065AEEB /* YubNubSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YubNubSearch.h; sourceTree = "<group>"; };
 		0ADCAF7F0B09227D0065AEEB /* YubNubSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YubNubSearch.m; sourceTree = "<group>"; };
@@ -47,6 +91,7 @@
 				08FB77AFFE84173DC02AAC07 /* Classes */,
 				32C88E010371C26100C91783 /* Other Sources */,
 				089C167CFE841241C02AAC07 /* Resources */,
+				0A556B420F60B75300DA3B3A /* Archive Resources */,
 				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
 				19C28FB8FE9D52D311CA2CBB /* Products */,
 			);
@@ -81,6 +126,14 @@
 				0A538F3F0B3E79E100642847 /* MethodSwizzle.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		0A556B420F60B75300DA3B3A /* Archive Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0A556B430F60B76300DA3B3A /* SIMBL.webloc */,
+			);
+			name = "Archive Resources";
 			sourceTree = "<group>";
 		};
 		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
@@ -128,6 +181,7 @@
 				8D5B49B1048680CD000E48DA /* Sources */,
 				8D5B49B3048680CD000E48DA /* Frameworks */,
 				0AB48A150C50CF1800154D1C /* Process README.markdown */,
+				0A556A690F60AD0900DA3B3A /* Copy README.html */,
 			);
 			buildRules = (
 			);
@@ -152,6 +206,7 @@
 			projectRoot = "";
 			targets = (
 				8D5B49AC048680CD000E48DA /* YubNubSearch */,
+				0A556A1C0F60AB3000DA3B3A /* YubNubSearch Archive */,
 			);
 		};
 /* End PBXProject section */
@@ -168,6 +223,57 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0A556A5A0F60ACAD00DA3B3A /* Copy README.html */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(PRODUCT_NAME)/YubNubSearch.bundle/Contents/Resources/README.html",
+			);
+			name = "Copy README.html";
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(PRODUCT_NAME)/README.html",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ditto \"$SCRIPT_INPUT_FILE_0\" \"$SCRIPT_OUTPUT_FILE_0\"";
+			showEnvVarsInLog = 0;
+		};
+		0A556A690F60AD0900DA3B3A /* Copy README.html */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(DERIVED_SOURCES_DIR)/README.html",
+			);
+			name = "Copy README.html";
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/README.html",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ditto \"$SCRIPT_INPUT_FILE_0\" \"$SCRIPT_OUTPUT_FILE_0\"";
+			showEnvVarsInLog = 0;
+		};
+		0A556B480F60B77500DA3B3A /* Copy src */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)",
+			);
+			name = "Copy src";
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(PRODUCT_NAME)/src",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "rsync -av --delete --delete-excluded -C --exclude=.git/ --include='*.xcodeproj/project.pbxproj' --exclude='*.xcodeproj/*' \"$SCRIPT_INPUT_FILE_0\"/ \"$SCRIPT_OUTPUT_FILE_0\"/";
+			showEnvVarsInLog = 0;
+		};
 		0AB48A150C50CF1800154D1C /* Process README.markdown */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -178,11 +284,11 @@
 			);
 			name = "Process README.markdown";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/README.html",
+				"$(DERIVED_SOURCES_DIR)/README.html",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "OUTPUT=${DERIVED_FILE_DIR}/README.html\nif [[ $BUILD_STYLE = Release ]]; then\n\tcat <<EOF > $OUTPUT\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html>\n<head>\n<title>YubNubSearch</title>\n</head>\n<body>\nEOF\n\tperl ${SRCROOT}/Markdown.pl ${SRCROOT}/README.markdown >> $OUTPUT\n\tcat <<EOF >> $OUTPUT\n</body>\n</html>\nEOF\nfi";
+			shellScript = "set -e\ncat <<EOF > \"$SCRIPT_OUTPUT_FILE_0\"\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html>\n<head>\n<title>YubNubSearch</title>\n</head>\n<body>\nEOF\nperl ${SRCROOT}/Markdown.pl \"$SCRIPT_INPUT_FILE_0\" >> \"$SCRIPT_OUTPUT_FILE_0\"\ncat <<EOF >> \"$SCRIPT_OUTPUT_FILE_0\"\n</body>\n</html>\nEOF";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -199,6 +305,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		0A556A200F60AB3700DA3B3A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D5B49AC048680CD000E48DA /* YubNubSearch */;
+			targetProxy = 0A556A1F0F60AB3700DA3B3A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		089C167DFE841241C02AAC07 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -211,6 +325,27 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0A556A1D0F60AB3100DA3B3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = YubNubSearch;
+			};
+			name = Debug;
+		};
+		0A556A1E0F60AB3100DA3B3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = YubNubSearch;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		1DEB913B08733D840010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -222,7 +357,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = YubNubSearch_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				INSTALL_PATH = "/Library/Application Support/SIMBL/Plugins";
 				PRODUCT_NAME = YubNubSearch;
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -240,7 +375,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = YubNubSearch_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				INSTALL_PATH = "/Library/Application Support/SIMBL/Plugins";
 				PRODUCT_NAME = YubNubSearch;
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -269,6 +404,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0A556A2E0F60AB7300DA3B3A /* Build configuration list for PBXAggregateTarget "YubNubSearch Archive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A556A1D0F60AB3100DA3B3A /* Debug */,
+				0A556A1E0F60AB3100DA3B3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "YubNubSearch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
